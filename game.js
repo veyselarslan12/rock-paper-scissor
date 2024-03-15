@@ -27,27 +27,34 @@
         // if no
             // stop
 
+let humanScore  = 0;
+let computerScore = 0;
+
+
 const choices = ["R", "P", "S"];
 
-const computerChoices = choices[Math.floor(Math.random() * choices.length)];
+const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-const humanChoices =  prompt("Choose rock (R), paper (P), or scissor (S)").toUpperCase();
+const humanChoice =  prompt("Choose rock (R), paper (P), or scissor (S)").toUpperCase();
 
-if (!choices.includes(humanChoices) ) {
+// check for invalid input
+if (!choices.includes(humanChoice) ) {
     alert("Invalid choice");
 }
 
-if( (humanChoices === 'R' && computerChoices === 'P') || 
-    (humanChoices === 'P' && computerChoices === 'S') || 
-    (humanChoices === 'S' && computerChoices === 'R')) 
+if( (humanChoice === 'R' && computerChoice === 'P') || 
+    (humanChoice === 'P' && computerChoice === 'S') || 
+    (humanChoice === 'S' && computerChoice === 'R')) 
     {
-        alert (`Your choice: ${humanChoices}, Computer's choice: ${computerChoices}, You win!`)
+     alert (`Your choice: ${humanChoice}, Computer's choice: ${computerChoice}, You win!`) 
+     humanScore = humanScore + 1    // humanScore += 1  or humanScore++
 
-} else if ( humanChoices === computerChoices) {
-    alert(`Your choice: ${humanChoices}, Computer'S choice: ${computerChoices}, It's a tie!`);
+} else if ( humanChoice === computerChoice) {
+    alert(`Your choice: ${humanChoice}, Computer'S choice: ${computerChoice}, It's a tie!`);
 
 } else {
-    alert(`Your choice: ${humanChoices}, Computer's choice: ${computerChoices}, You lose!`);
+    alert(`Your choice: ${humanChoice}, Computer's choice: ${computerChoice}, You lose!`);
+    computerScore = computerScore + 1   // computerScore += 1 or computerScore++
 }
 
-    
+alert(`Human: ${humanScore} | Computer: ${computerScore}`)  
